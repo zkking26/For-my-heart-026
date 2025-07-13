@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Zaina ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+    .heart:after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .message {
+      font-size: 2em;
+      color: #fff;
+      text-align: center;
+      margin: 20px;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 10;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .zaina {
+      font-size: 4em;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff4b2b, #ff416c);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient 4s ease infinite, glow 2s infinite alternate;
+      text-align: center;
+      margin-top: 30px;
+      z-index: 10;
+    }
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    @keyframes glow {
+      from {text-shadow: 0 0 10px #fff;}
+      to {text-shadow: 0 0 30px #ff6ec4, 0 0 60px #7873f5;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message" id="text"></div>
+  <div class="zaina" style="display:none;">Zaina ❤️</div>
+
+  <script>
+    // Floating hearts
+    for (let i = 0; i < 50; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = "rotate(45deg) scale(" + (0.5 + Math.random()) + ")";
+      document.body.appendChild(heart);
+    }
+
+    // Romantic text messages
+    const messages = [
+      "Naraz nahi ho na please 💕💕💗💗",
+      "Apke siwa koi nhi hai jo mujhe smj ske ya jisko me smji💗💗💕💕💕",
+      "You are the best of my life 💕💗💗💕",
+      "And you are caring me and understand me 💕💕💗",
+      "And I know I hurt you everytime bacha 💗💕💕",
+      "But I want to do that why I told you don't like tell me I never do🤝",
+      "You are the girl I speak freely ❤️",
+      "You are the girl you give me support ❤️",
+      "Also you are my future wife but now you are my wife ❤️",
+      "You always give me fun ☺️",
+      "You are everything ❤️",
+      "You are my world 🌎",
+      "You are my universe❤️",
+      "You are my moon ❤️",
+      "You are my sunshine ❤️",
+      "You are my heart ❤️",
+      "You are my sweet heart ❤️",
+      "You are my friend❤️",
+      "You are my girlfriend❤️",
+      "You are the best person of my life❤️",
+      "You are the sukoon ❤️",
+      "You are the happiness ❤️",
+      "You are the family ❤️"
+    ];
+
+    let i = 0;
+    const textElement = document.getElementById('text');
+    const zainaElement = document.querySelector('.zaina');
+
+    function showMessage() {
+      if (i < messages.length) {
+        textElement.textContent = messages[i];
+        i++;
+        setTimeout(showMessage, 2000);
+      } else {
+        textElement.style.display = "none";
+        zainaElement.style.display = "block";
+      }
+    }
+
+    showMessage();
+  </script>
+</body>
+</html>
